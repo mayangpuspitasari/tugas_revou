@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img class="logo" src="img/revou.jpg">
+            <div class="nav">
+                <a href="index.html">Home</a>
+                <a href="profil.html"> My Profil</a>
+                <a href="#">Portofolio</a> 
+               <a href="#"> Message-Us</a>
+            </div>
+        </header>
+    
+       
+    
+        <main class="main-content">
+            
+            <h3>Hai, <span id="nama"></span> Welcome To Website</h3><br>
+            <script>
+                var name = prompt("Masukkan Nama Kamu");
+                document.getElementById("nama").innerText=name;
+            </script>
+            
+            <section id="hero">
+                <div>
+                    <img 
+                    class="img-slideshow"
+                    src="img/s2.jpg" alt="">
+    
+                    <img 
+                    class="img-slideshow"
+                    src="img/s3.jpg" alt="">
+    
+                    <img 
+                    class="img-slideshow"
+                    src="img/s1.jpg" alt="">
+
+                    <img 
+                    class="img-slideshow"
+                    src="img/s4.jpeg" alt="">
+    
+                    <div class="button">
+                        <button class="click" onclick="plusDivs(-1)">Previous</button>
+                    <button class="click" onclick="plusDivs(1)">Next</button>
+                    </div>
+                    
+                </div>
+
+                <div class="about-me">
+                    <h3>About Me</h3><br>
+                    <p>Nama saya Mayang Puspita Sari saya lahir tanggal 09 januari
+                    2002 dan saat ini umur saya 21 Tahun, pertama
+                    kali saya suka coding adalah saat saya SMK
+                    karena saya ingin lebih mendalami coding
+                    Saya memutuskan kuliah dan mengambil jurusan Sistem Informasi, sekarang
+                    saya kuliah di kampus swasta STMIK ROYAL KISARAN yang terletak di provinsi Sumatra Utara.
+                    dan sekarang saya semester 4, saya berharap kelak saya bisa menjadi
+                    seorang web developer.
+                    </p>
+                </div>
+
+                <div class="about">
+                    <div class="visi">
+                        <h3>VISI</h3><br>
+                       <p>Menjadi seorang Web developer yang <br>
+                        dapat berguna bagi sekitarnya dan <br>
+                         dapat membantu orang lain di <br>
+                         bidang teknologi informasi
+                       </p>
+                    </div>
+                    <div class="misi">
+                        <h3>MISI</h3><br>
+                        <ul>
+                            <li>Rajin membuat proyek website</li>
+                            <li>Mencari materi pelajaran</li>
+                            <li>Selalu Komitmen dalam belajar</li>
+                            <li>Belajar lebih keras dari pada orang lain</li>
+                        </ul>
+                    </div>
+                </div>
+            
+                
+                <script>
+                    var slideindex =1;
+                    showDivs(slideindex);
+    
+                    function plusDivs(n){
+                        showDivs((slideindex += n));
+                        }
+    
+                    function showDivs(n){
+                        var i;
+                        var imglist = document.getElementsByClassName("img-slideshow");
+                        if (n > imglist.length) slideindex =1;
+                        else if(n <1) slideindex = imglist.length;
+    
+                        for(i =0; i < imglist.length; i++){
+                            imglist[i].style.display = "none";
+                        }
+                        imglist[slideindex -1].style.display = "block";
+                    }
+    
+                        setInterval(() => {
+                            plusDivs(1);
+                        },1000);
+                
+                
+                </script>
+            </section>
+
+            <section id="facilitation">
+                <h3>Our Facilation</h3><br>
+                <div class="facil">
+                    <div>
+                        <img class="facil-img"  src="img/html.png" alt="">
+                        <p class="facil-p">HTML</p>
+                    </div>
+              
+                    <div>
+                        <img class="facil-img" src="img/css.png" alt="">
+                        <p class="facil-p">CSS</p>
+                    </div>
+               
+                    <div>
+                        <img class="facil-img" src="img/js.png" alt="">
+                        <p class="facil-p">Javascript</p>
+                    </div>
+               
+                </div>
+            </section>
+            
+            <div class="form-section">
+                    <form id="message-form" name="message-form" onsubmit="return validateform()">
+                        <h3>Message Us</h3>
+
+                        <div class="form-input">
+                            <div class="input-field">
+                                <label for="nama" id="nama"> Nama</label>  
+                                <input class="data" type="text" placeholder="Nama" name="full-name">
+                                <br>
+                            </div>
+                            <div class="input-field">
+                                <label id="tgl" for="tgl">Tanggal Lahir</label> 
+                                <input class="tgl" type="date" name="birth-date">
+                                <br>
+                            </div>
+                           <div class="input-radio">
+                                <label class="input-jk" id="jk" for="gender">Jenis Kelamin </label> 
+                               <input class="radio" id="male" type="radio" name="gender" value="Laki-Laki">
+                                <label class="gender" for="male">Laki-Laki</label> 
+                                <input class="ra" id="female" type="radio" name="gender" value="Perempuan">
+                                <label for="female">Perempuan</label>
+                                <br>
+                           </div>
+                           <div class="input-field">
+                                <label id="pesan" for="pesan"> Pesan </label>
+                                <textarea class="pesan" name="message"></textarea>
+                                 <br>
+                           </div>
+                            
+                           <div class="input-field">
+                                <input  type="submit" value="Submit" class="submit">
+                           </div> 
+                        </div>                 
+            </form>
+            
+            <script>
+                function validateform() {
+                
+                var name = document.forms["message-form"] ["full-name"].value;
+                var date = document.forms["message-form"] ["birth-date"].value;
+                var gender = document.forms["message-form"] ["gender"].value;
+                var message = document.forms["message-form"] ["message"].value;
+    
+                if(name == "" || date == "" || gender == "" || message == ""){
+                alert("Input Tidak Boleh Kosong");
+                return false;
+    
+                }
+                
+                document.getElementById("sender-full-name").innerText = name;
+                document.getElementById("sender-birth-date").innerText = date;
+                document.getElementById("sender-gender").innerText = gender;
+                document.getElementById("sender-message").innerText = message;
+                
+                
+                return false;
+                }
+            </script>
+        
+            <div class="output">
+                <p><b>Current Time : <span id="tanggalwaktu"></span></b></p><br>
+    
+                
+                <p><b>Nama : </b><span id="sender-full-name"></span></p>
+                <p><b>Tanggal Lahir :</b> <span id="sender-birth-date"></span></p>
+                <p><b>Jenis Kelamin : </b><span id="sender-gender"></span></p>
+                <p><b>Pesan :</b> <span id="sender-message"></span></p>
+            </div>
+                
+            
+        </div>
+        </main>
+    </div>
+    
+<div class="footer">
+    <footer>
+        <p>Create By Mayang Puspita Sari 2023</p>
+    </footer>
+</div>
+  
+</body>
+</html>
